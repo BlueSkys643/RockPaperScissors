@@ -27,26 +27,31 @@ public class RockPaperScissors {
             System.out.println("Rock Paper Scissors Shoot!\n");
             Scanner ask = new Scanner(System.in);
             String p = ask.nextLine(); // p is player choice
+
+            if (p.equals(rok) || p.equals(ppr) || p.equals(srs)){ //if player response isn't usable, tell them
+                System.out.println("Valid response");
+            } else {
+                System.out.println("invalid response");
+            }
+
             System.out.println("Computer chose:");
             String c = getRandomElement(play); // c is computer choice
             System.out.println(c);
 
             //test answers vs each other and determine a victor
-            if(c.equals(rok)) {
+            if (c.equals(rok)) {
                 if (p.equals(srs)) {
                     playerHP -= 1;
                 } else if (p.equals(ppr)) {
                     enemyHP -= 1;
                 }
-            }
-            if(c.equals(ppr)) {
+            } else if (c.equals(ppr)) {
                 if (p.equals(rok)) {
                     playerHP -= 1;
                 } else if (p.equals(srs)) {
                     enemyHP -= 1;
                 }
-            }
-            if(c.equals(srs)) {
+            } else if (c.equals(srs)) {
                 if (p.equals(ppr)) {
                     playerHP -= 1;
                 } else if (p.equals(rok)) {
@@ -55,7 +60,7 @@ public class RockPaperScissors {
             }
         }
 
-        //once either the player or the computer has ran out of health we can declare a victor
+        //once either the player or the computer has run out of health we can declare a victor
         if (playerHP > 0) {
             System.out.println("Player wins!");
         } else {
